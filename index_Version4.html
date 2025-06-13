@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>NYC Travel Planner - 3 días en Nueva York</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f7fa;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: #222b45;
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px #ddd;
+    }
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.2rem;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0 2px 8px #e0e0e0;
+      margin-top: -1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .tab {
+      padding: 1rem 2rem;
+      cursor: pointer;
+      font-weight: 500;
+      color: #222b45;
+      border: none;
+      background: none;
+      border-bottom: 3px solid transparent;
+      transition: border .2s;
+      outline: none;
+      font-size: 1.1rem;
+    }
+    .tab.active {
+      border-bottom: 3px solid #0099cc;
+      color: #0099cc;
+      background: #f7fafc;
+    }
+    .tabcontent {
+      display: none;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 20px #e0e6ed;
+      margin-bottom: 2rem;
+    }
+    .tabcontent.active {
+      display: block;
+    }
+    .map-container {
+      width: 100%;
+      height: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+      border: 1px solid #dde4eb;
+      box-shadow: 0 2px 8px #f7faff;
+    }
+    .itinerary {
+      background: #f7fafc;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #0099cc;
+      box-shadow: 0 2px 8px #e0e6ed;
+    }
+    .eat, .tips {
+      background: #effaff;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #27ae60;
+      box-shadow: 0 2px 8px #e0e6ed;
+    }
+    .eat h3, .tips h3 {
+      margin-top: 0;
+      color: #27ae60;
+    }
+    .tips {
+      border-left: 4px dashed #e67e22;
+      background: #fff9ee;
+    }
+    .tips h3 {
+      color: #e67e22;
+    }
+    .itinerary strong {
+      color: #0099cc;
+    }
+    @media (max-width: 700px) {
+      .tabcontent { padding: 1rem; }
+      .tabs { flex-direction: column; }
+      .tab { width: 100%; }
+      .map-container { height: 250px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NYC Travel Planner</h1>
+    <p>Itinerario optimizado de 3 días en Nueva York &mdash; Mapa, recomendaciones, comida barata y tips</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="dia1">Día 1</button>
+    <button class="tab" data-tab="dia2">Día 2</button>
+    <button class="tab" data-tab="dia3">Día 3</button>
+  </div>
+
+  <!-- Día 1 -->
+  <div id="dia1" class="tabcontent active">
+    <div class="map-container" id="map-dia1"></div>
+    <div class="itinerary">
+      <h2>Itinerario Día 1: Midtown Manhattan</h2>
+      <ol>
+        <li><strong>Times Square</strong>: Empieza el día en el corazón de NYC.</li>
+        <li><strong>Rockefeller Center</strong>: Camina por la 6th Ave, disfruta del Top of the Rock.</li>
+        <li><strong>St. Patrick's Cathedral</strong>: Cruza la 5th Ave, visita la catedral.</li>
+        <li><strong>Central Park</strong>: Recorre la 5th Ave hacia arriba y entra por la esquina SE del parque.</li>
+        <li><strong>Museo MET</strong>: Cruza Central Park hacia el Este, visita el museo.</li>
+      </ol>
+      <ul>
+        <li><em>Recomendación:</em> Todos los puntos se pueden hacer caminando; si prefieres, puedes tomar la línea de metro <strong>E</strong> o <strong>F</strong> entre Rockefeller Center y 5th Ave/53rd St.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato?</h3>
+      <ul>
+        <li><strong>Joe's Pizza</strong>: Una porción clásica de pizza neoyorquina a buen precio. (1435 Broadway, cerca de Times Square)</li>
+        <li><strong>Halal Guys</strong>: Platos de gyro y falafel abundantes y económicos. (W 53rd St & 6th Ave, food truck famoso)</li>
+        <li><strong>Ess-a-Bagel</strong>: Bagels enormes y baratos, perfectos para desayuno o almuerzo. (831 3rd Ave)</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales</h3>
+      <ul>
+        <li>Lleva botella de agua reutilizable, hay estaciones para rellenar gratis.</li>
+        <li>Descarga la app <strong>Citymapper</strong> o <strong>Google Maps</strong> para moverte en metro.</li>
+        <li>Muchos museos tienen entrada sugerida, puedes pagar menos si tu presupuesto es ajustado (consulta en taquilla).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Día 2 -->
+  <div id="dia2" class="tabcontent">
+    <div class="map-container" id="map-dia2"></div>
+    <div class="itinerary">
+      <h2>Itinerario Día 2: Downtown Manhattan & Estatua de la Libertad</h2>
+      <ol>
+        <li><strong>Battery Park</strong>: Toma el ferry a la Estatua de la Libertad y Ellis Island.</li>
+        <li><strong>Wall Street & Charging Bull</strong>: Regresa y pasea por el distrito financiero.</li>
+        <li><strong>One World Trade Center & 9/11 Memorial</strong>: Camina hasta el WTC y visita el memorial.</li>
+        <li><strong>Brooklyn Bridge</strong>: Cruza el puente caminando hasta DUMBO.</li>
+      </ol>
+      <ul>
+        <li><em>Recomendación:</em> Usa el metro <strong>4/5</strong> (Bowling Green, Wall St) o <strong>R</strong> (Cortlandt St) para moverte entre puntos si lo prefieres. El cruce del Brooklyn Bridge es a pie y recomendable al atardecer.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato?</h3>
+      <ul>
+        <li><strong>Los Tacos No.1</strong>: Tacos auténticos y económicos en el Oculus (Westfield World Trade Center).</li>
+        <li><strong>Leo's Bagels</strong>: Bagels y sándwiches baratos, muy cerca de Wall Street (3 Hanover Square).</li>
+        <li><strong>Banh Mi Saigon</strong>: Sándwiches vietnamitas abundantes a buen precio (198 Grand St, Chinatown, a unos minutos del puente).</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales</h3>
+      <ul>
+        <li>Compra el ferry a la Estatua de la Libertad solo en la boletería oficial (<a href="https://www.statuecruises.com/" target="_blank">statuecruises.com</a>), evita vendedores ambulantes.</li>
+        <li>El cruce del Brooklyn Bridge tiene hermosas vistas, pero lleva calzado cómodo y cuidado con ciclistas.</li>
+        <li>En el 9/11 Memorial puedes ingresar gratis a la zona exterior, el museo es de pago.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Día 3 -->
+  <div id="dia3" class="tabcontent">
+    <div class="map-container" id="map-dia3"></div>
+    <div class="itinerary">
+      <h2>Itinerario Día 3: Chelsea, High Line & Midtown Sur</h2>
+      <ol>
+        <li><strong>High Line</strong>: Empieza en Hudson Yards y recorre el parque elevado.</li>
+        <li><strong>Chelsea Market</strong>: Baja y prueba algo típico para almorzar.</li>
+        <li><strong>Empire State Building</strong>: Camina por la 7th o 8th Ave hasta el Empire.</li>
+        <li><strong>Grand Central Terminal</strong>: Continúa hacia el este, detente en Bryant Park y termina en Grand Central.</li>
+      </ol>
+      <ul>
+        <li><em>Recomendación:</em> Todo a pie; si te cansas, usa el metro <strong>1/2/3</strong> o <strong>B/D/F/M</strong> según la cercanía.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato?</h3>
+      <ul>
+        <li><strong>Los Mariscos (Chelsea Market)</strong>: Tacos y mariscos frescos a buen precio dentro del mercado.</li>
+        <li><strong>Famous Original Ray's Pizza</strong>: Pizza al corte clásica y barata (831 7th Ave).</li>
+        <li><strong>Shake Shack</strong>: Hamburguesas y papas, buena relación calidad-precio (Madison Square Park).</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales</h3>
+      <ul>
+        <li>Chelsea Market tiene wifi gratis y baños limpios.</li>
+        <li>Si visitas el Empire State, compra entradas online para evitar filas.</li>
+        <li>En Grand Central hay un food court económico en el nivel inferior.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tabcontent').forEach(tc => tc.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+      });
+    });
+
+    // MAPAS GOOGLE
+    let mapsLoaded = false;
+    function loadGoogleMapsScript() {
+      if (mapsLoaded) return;
+      mapsLoaded = true;
+      let script = document.createElement('script');
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZKxlKu8Vxe3xrtdH8AhcBvkfnwG3TxAQ&callback=initAllMaps";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    // Carga el mapa al mostrar el primer tab
+    window.addEventListener('DOMContentLoaded', loadGoogleMapsScript);
+
+    function initAllMaps() {
+      // DIA 1
+      let map1 = new google.maps.Map(document.getElementById('map-dia1'), {
+        center: {lat: 40.7648, lng: -73.9787},
+        zoom: 13
+      });
+      let dia1_points = [
+        {pos: {lat: 40.758, lng: -73.9855}, label: "Times Square"},
+        {pos: {lat: 40.7587, lng: -73.9787}, label: "Rockefeller Center"},
+        {pos: {lat: 40.758465, lng: -73.976865}, label: "St. Patrick's Cathedral"},
+        {pos: {lat: 40.7644, lng: -73.9738}, label: "Central Park (Esquina SE)"},
+        {pos: {lat: 40.7794, lng: -73.9632}, label: "Museo MET"}
+      ];
+      dia1_points.forEach(p => new google.maps.Marker({position: p.pos, map: map1, title: p.label}));
+
+      // Recorrido (línea)
+      let dia1_path = dia1_points.map(p => p.pos);
+      new google.maps.Polyline({
+        path: dia1_path,
+        geodesic: true,
+        strokeColor: "#0099cc",
+        strokeOpacity: 0.8,
+        strokeWeight: 3,
+        map: map1
+      });
+
+      // DIA 2
+      let map2 = new google.maps.Map(document.getElementById('map-dia2'), {
+        center: {lat: 40.7075, lng: -74.0113},
+        zoom: 13
+      });
+      let dia2_points = [
+        {pos: {lat: 40.7033, lng: -74.0170}, label: "Battery Park"},
+        {pos: {lat: 40.6892, lng: -74.0445}, label: "Estatua de la Libertad (ferry)"},
+        {pos: {lat: 40.7061, lng: -74.0087}, label: "Wall Street & Charging Bull"},
+        {pos: {lat: 40.7127, lng: -74.0134}, label: "One World Trade Center & 9/11 Memorial"},
+        {pos: {lat: 40.7061, lng: -73.9969}, label: "Brooklyn Bridge"}
+      ];
+      dia2_points.forEach(p => new google.maps.Marker({position: p.pos, map: map2, title: p.label}));
+      let dia2_path = [dia2_points[0].pos, dia2_points[2].pos, dia2_points[3].pos, dia2_points[4].pos];
+      new google.maps.Polyline({
+        path: dia2_path,
+        geodesic: true,
+        strokeColor: "#e67e22",
+        strokeOpacity: 0.8,
+        strokeWeight: 3,
+        map: map2
+      });
+
+      // DIA 3
+      let map3 = new google.maps.Map(document.getElementById('map-dia3'), {
+        center: {lat: 40.7486, lng: -73.9948},
+        zoom: 13
+      });
+      let dia3_points = [
+        {pos: {lat: 40.7537, lng: -74.0025}, label: "High Line (Hudson Yards)"},
+        {pos: {lat: 40.7420, lng: -74.0060}, label: "Chelsea Market"},
+        {pos: {lat: 40.748817, lng: -73.985428}, label: "Empire State Building"},
+        {pos: {lat: 40.7517, lng: -73.9772}, label: "Grand Central Terminal"}
+      ];
+      dia3_points.forEach(p => new google.maps.Marker({position: p.pos, map: map3, title: p.label}));
+      let dia3_path = dia3_points.map(p => p.pos);
+      new google.maps.Polyline({
+        path: dia3_path,
+        geodesic: true,
+        strokeColor: "#27ae60",
+        strokeOpacity: 0.8,
+        strokeWeight: 3,
+        map: map3
+      });
+    }
+    // Google Maps callback global
+    window.initAllMaps = initAllMaps;
+  </script>
+</body>
+</html>
