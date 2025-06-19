@@ -127,17 +127,18 @@
     <button class="tab" data-tab="dia3">Día 3</button>
   </div>
 
-  <!-- Día 1: Central Park, Midtown, High Line, Chelsea Market y Grand Central -->
+  <!-- Día 1: Central Park, Midtown, High Line, Chelsea Market, Grand Central y Top of the Rock -->
   <div id="dia1" class="tabcontent active">
     <div class="map-container" id="map-dia1"></div>
     <div class="itinerary">
-      <h2>Itinerario Día 1: Central Park, Midtown, High Line, Chelsea Market y Grand Central</h2>
+      <h2>Itinerario Día 1: Central Park, Midtown, High Line, Chelsea Market, Grand Central y Top of the Rock</h2>
       <ol>
         <li><span class="horario">09:00</span> <strong>Central Park</strong> (mañana): Pasea por el parque y disfruta de la naturaleza en pleno Manhattan.</li>
         <li><span class="horario">12:30</span> <strong>Fifth Avenue & Catedral de San Patricio</strong> (mediodía/tarde): Recorre la emblemática avenida y visita la catedral.</li>
         <li><span class="horario">15:00</span> <strong>High Line</strong>: Disfruta del parque elevado y sus vistas urbanas.</li>
         <li><span class="horario">16:30</span> <strong>Chelsea Market</strong>: Almuerza o merienda en el mercado más foodie de Manhattan.</li>
         <li><span class="horario">18:00</span> <strong>Grand Central Terminal</strong>: Termina el día admirando la estación y su food court.</li>
+        <li><span class="horario">20:00</span> <strong>Top of the Rock</strong>: Sube al observatorio del Rockefeller Center para vistas panorámicas de Manhattan al atardecer o de noche.</li>
       </ol>
       <ul>
         <li><em>Recomendación:</em> Usa metro B/C para el parque, E/M/6 para 5th Ave/Catedral, A/C/E o L para llegar a High Line/Chelsea Market y S/4/5/6/7 para Grand Central.</li>
@@ -160,6 +161,7 @@
         <li>En Chelsea Market hay wifi gratis y baños limpios.</li>
         <li>La Catedral de San Patricio es gratuita y se puede visitar brevemente.</li>
         <li>Grand Central es una excelente opción para cenar económico al final del día y tomar el metro/subte a tu alojamiento.</li>
+        <li>Compra las entradas para Top of the Rock online para evitar filas y elige horario atardecer o noche para las mejores vistas.</li>
       </ul>
     </div>
   </div>
@@ -202,20 +204,19 @@
     </div>
   </div>
 
-  <!-- Día 3: Empire State, Top of the Rock y alrededores -->
+  <!-- Día 3: Empire State y alrededores -->
   <div id="dia3" class="tabcontent">
     <div class="map-container" id="map-dia3"></div>
     <div class="itinerary">
-      <h2>Itinerario Día 3: Empire State, Top of the Rock y alrededores</h2>
+      <h2>Itinerario Día 3: Empire State y alrededores</h2>
       <ol>
         <li><span class="horario">09:00</span> <strong>Empire State Building</strong>: Comienza el día subiendo al observatorio si lo deseas.</li>
         <li><span class="horario">11:00</span> <strong>Bryant Park</strong>: Disfruta el parque y su ambiente relajado.</li>
         <li><span class="horario">12:30</span> <strong>Biblioteca Pública de Nueva York</strong>: Visita obligada para amantes de la arquitectura y la lectura.</li>
-        <li><span class="horario">16:00</span> <strong>Top of the Rock</strong>: Sube al observatorio del Rockefeller Center para vistas panorámicas de Manhattan al atardecer.</li>
         <li><span class="horario">18:00</span> <strong>Times Square</strong>: Termina el viaje en el corazón de Manhattan. Lo mejor es visitarlo al anochecer.</li>
       </ol>
       <ul>
-        <li><em>Recomendación:</em> Todo a pie; si te cansas, usa el metro 1/2/3, B/D/F/M o líneas cercanas.</li>
+        <li><em>Recomendación:</em> Todo a pie; si te cansas, usa el metro 1/2/3 o B/D/F/M según la cercanía.</li>
       </ul>
     </div>
     <div class="eat">
@@ -229,10 +230,9 @@
     <div class="tips">
       <h3>Tips adicionales</h3>
       <ul>
-        <li>Compra las entradas para el Empire State y Top of the Rock online para evitar filas y elige horario temprano o atardecer.</li>
+        <li>Compra las entradas para el Empire State online para evitar filas y elige horario temprano.</li>
         <li>Bryant Park es perfecto para descansar y tiene wifi gratis.</li>
         <li>La Biblioteca Pública es gratuita y tiene baños limpios.</li>
-        <li>Top of the Rock ofrece una de las mejores vistas del Empire State y Central Park.</li>
         <li>Times Square es más impresionante de noche, pero está muy concurrido. ¡Cuida tus pertenencias!</li>
       </ul>
     </div>
@@ -298,7 +298,7 @@
     }
 
     function initAllMaps() {
-      // Día 1: Central Park, Midtown, High Line, Chelsea Market y Grand Central
+      // Día 1: Central Park, Midtown, High Line, Chelsea Market, Grand Central y Top of the Rock
       let map1 = new google.maps.Map(document.getElementById('map-dia1'), {
         center: {lat: 40.7648, lng: -73.9787},
         zoom: 13
@@ -308,7 +308,8 @@
         {lat: 40.758465, lng: -73.976865, label: "Catedral de San Patricio"},
         {lat: 40.747993, lng: -74.004765, label: "High Line (entrada sur)"},
         {lat: 40.7420, lng: -74.0060, label: "Chelsea Market"},
-        {lat: 40.7527, lng: -73.9772, label: "Grand Central Terminal"}
+        {lat: 40.7527, lng: -73.9772, label: "Grand Central Terminal"},
+        {lat: 40.7587, lng: -73.9787, label: "Top of the Rock"}
       ];
       showRoute(map1, dia1_points, "#0099cc");
 
@@ -326,16 +327,15 @@
       ];
       showRoute(map2, dia2_points, "#e67e22");
 
-      // Día 3: Empire State, Top of the Rock y alrededores
+      // Día 3: Empire State y alrededores
       let map3 = new google.maps.Map(document.getElementById('map-dia3'), {
-        center: {lat: 40.7580, lng: -73.9855},
+        center: {lat: 40.7549, lng: -73.9840},
         zoom: 13
       });
       let dia3_points = [
         {lat: 40.748817, lng: -73.985428, label: "Empire State Building"},
         {lat: 40.7536, lng: -73.9832, label: "Bryant Park"},
         {lat: 40.7532, lng: -73.9822, label: "Biblioteca Pública de Nueva York"},
-        {lat: 40.7587, lng: -73.9787, label: "Top of the Rock"},
         {lat: 40.7580, lng: -73.9855, label: "Times Square"}
       ];
       showRoute(map3, dia3_points, "#27ae60");
