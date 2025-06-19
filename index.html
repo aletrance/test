@@ -159,35 +159,39 @@
     </div>
   </div>
 
-  <!-- Día 2 (Nuevo) -->
+  <!-- Día 2 (Central Park, Midtown, Chinatown, Brooklyn Bridge) -->
   <div id="dia2" class="tabcontent">
     <div class="map-container" id="map-dia2"></div>
     <div class="itinerary">
-      <h2>Itinerario Día 2: Central Park y Midtown Norte</h2>
+      <h2>Itinerario Día 2: Central Park, Midtown, Chinatown & Brooklyn Bridge</h2>
       <ol>
-        <li><strong>Central Park & Museo de Historia Natural</strong> (mañana): Recorre el parque y visita el museo.</li>
-        <li><strong>Fifth Avenue & Catedral de San Patricio</strong> (tarde tardía): Pasea por la emblemática avenida y visita la catedral.</li>
-        <li><strong>Top of the Rock & Rockefeller Plaza</strong> (noche): Disfruta la vista nocturna de Nueva York y el ambiente de la plaza.</li>
+        <li><strong>Central Park & Museo de Historia Natural</strong> (mañana): Pasea por el parque y visita el museo.</li>
+        <li><strong>Fifth Avenue & Catedral de San Patricio</strong> (mediodía/tarde): Recorre la emblemática avenida y visita la catedral.</li>
+        <li><strong>Chinatown</strong> (tarde): Disfruta de la cultura, el ambiente y la mejor comida asiática de la ciudad.</li>
+        <li><strong>Brooklyn Bridge</strong> (atardecer/noche): Cruza el puente caminando para ver el skyline iluminado y termina en DUMBO, Brooklyn.</li>
       </ol>
       <ul>
-        <li><em>Recomendación:</em> Se puede caminar entre los puntos, pero también puedes usar el metro <strong>B/C</strong> para el museo, y las líneas <strong>E/M</strong> o <strong>F/D</strong> para llegar a Rockefeller Center.</li>
+        <li><em>Recomendación:</em> Camina o usa el metro B/C (Museo), E/M/6 (5th Ave/Catedral), 6 (a Canal St, Chinatown) y luego camina hasta el Brooklyn Bridge.</li>
       </ul>
     </div>
     <div class="eat">
-      <h3>¿Dónde comer barato?</h3>
+      <h3>¿Dónde comer barato en Chinatown?</h3>
       <ul>
-        <li><strong>Ess-a-Bagel</strong>: Bagels enormes y baratos, perfectos para desayuno o almuerzo. (831 3rd Ave)</li>
-        <li><strong>Halal Guys</strong>: Platos de gyro y falafel abundantes y económicos. (W 53rd St & 6th Ave, food truck famoso, cerca de Rockefeller)</li>
-        <li><strong>Pret a Manger</strong>: Para un café rápido o ensaladas y sándwiches a buen precio, hay varias sucursales cerca del parque y de la 5ta Avenida.</li>
+        <li><strong>Xi’an Famous Foods</strong> (45 Bayard St): Famosos noodles y lamb burgers, sabor único y precios razonables.</li>
+        <li><strong>Joe’s Shanghai</strong> (46 Bowery): Los mejores dumplings al vapor y sopas tradicionales.</li>
+        <li><strong>Great NY Noodletown</strong> (28 Bowery): Sopas de fideos y arroces, ideal para comer abundante y barato.</li>
+        <li><strong>Wo Hop</strong> (17 Mott St): Un clásico subterráneo, platos grandes y económicos, abierto hasta tarde.</li>
+        <li><strong>Tasty Dumpling</strong> (42 Mulberry St): Dumplings baratos para llevar y disfrutar paseando.</li>
       </ul>
     </div>
     <div class="tips">
       <h3>Tips adicionales</h3>
       <ul>
-        <li>La entrada al museo de Historia Natural es sugerida para residentes, pero para turistas es fija. Compra online para evitar filas.</li>
-        <li>Lleva calzado cómodo para caminar mucho en el parque y la 5ta Avenida.</li>
-        <li>Reserva tu entrada para Top of the Rock con anticipación para asegurar el horario de atardecer / noche.</li>
-        <li>La Catedral de San Patricio es gratuita y se puede visitar brevemente.</li>
+        <li>El Museo de Historia Natural abre desde temprano, compra la entrada online para evitar filas.</li>
+        <li>En Chinatown lleva efectivo, muchos sitios no aceptan tarjeta.</li>
+        <li>El Brooklyn Bridge es más espectacular al atardecer y de noche: lleva la cámara lista.</li>
+        <li>En DUMBO, Brooklyn, hay excelentes vistas para fotos y helados en Brooklyn Ice Cream Factory.</li>
+        <li>Si vas en grupo, comparte platos en Chinatown para probar más opciones.</li>
       </ul>
     </div>
   </div>
@@ -293,23 +297,23 @@
       let dia1_points = [
         {lat: 40.7033, lng: -74.0170, label: "Battery Park"},
         {lat: 40.7061, lng: -74.0087, label: "Wall Street & Charging Bull"},
-        {lat: 40.7506, lng: -74.0017, label: "Oculus & World Trade Center"}, // Oculus
+        {lat: 40.7506, lng: -74.0017, label: "Oculus & World Trade Center"},
         {lat: 40.7527, lng: -73.9772, label: "Grand Central Terminal"},
         {lat: 40.747993, lng: -74.004765, label: "High Line (entrada sur)"},
         {lat: 40.7420, lng: -74.0060, label: "Chelsea Market"}
       ];
       showRoute(map1, dia1_points, "#e67e22");
 
-      // Día 2 NUEVO
+      // Día 2 - Central Park, Midtown, Chinatown, Brooklyn Bridge
       let map2 = new google.maps.Map(document.getElementById('map-dia2'), {
-        center: {lat: 40.773, lng: -73.9712},
+        center: {lat: 40.758465, lng: -73.976865},
         zoom: 13
       });
       let dia2_points = [
-        {lat: 40.7813, lng: -73.9735, label: "Museo de Historia Natural"}, // Museo
-        {lat: 40.7829, lng: -73.9654, label: "Central Park (Este, Great Lawn)"}, // Central Park este, cercano a salida
-        {lat: 40.758465, lng: -73.976865, label: "Catedral de San Patricio"}, // Catedral
-        {lat: 40.7587, lng: -73.9787, label: "Rockefeller Center/Top of the Rock"} // Top of the Rock
+        {lat: 40.7813, lng: -73.9735, label: "Museo de Historia Natural"},
+        {lat: 40.758465, lng: -73.976865, label: "Catedral de San Patricio"},
+        {lat: 40.7158, lng: -73.9970, label: "Chinatown"}, // Approx. Canal & Mott St
+        {lat: 40.7061, lng: -73.9969, label: "Brooklyn Bridge (entrada Manhattan)"}
       ];
       showRoute(map2, dia2_points, "#0099cc");
 
