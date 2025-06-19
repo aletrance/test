@@ -108,6 +108,11 @@
       .tab { width: 100%; }
       .map-container { height: 250px; }
     }
+    .horario {
+      color: #0099cc;
+      font-weight: bold;
+      margin-right: 0.5em;
+    }
   </style>
 </head>
 <body>
@@ -122,109 +127,111 @@
     <button class="tab" data-tab="dia3">Día 3</button>
   </div>
 
-  <!-- Día 1 -->
+  <!-- Día 1: Downtown, Chinatown y Brooklyn Bridge -->
   <div id="dia1" class="tabcontent active">
     <div class="map-container" id="map-dia1"></div>
     <div class="itinerary">
-      <h2>Itinerario Día 1: Lo mejor del Downtown y Midtown</h2>
+      <h2>Itinerario Día 1: Downtown, Chinatown y Brooklyn Bridge</h2>
       <ol>
-        <li><strong>Battery Park</strong>: Toma el ferry a la Estatua de la Libertad y Ellis Island.</li>
-        <li><strong>Wall Street & Charging Bull</strong>: Camina por el distrito financiero tras regresar del ferry.</li>
-        <li><strong>Oculus & World Trade Center</strong>: Llega al Oculus y visita el 9/11 Memorial.</li>
-        <li><strong>Grand Central Terminal</strong>: Llega en metro desde el Oculus, recorre este ícono neoyorquino.</li>
-        <li><strong>High Line</strong>: Camina hacia el High Line, disfruta del parque elevado.</li>
-        <li><strong>Chelsea Market</strong>: Termina el día comiendo algo rico y barato aquí.</li>
+        <li><span class="horario">08:30</span> <strong>Battery Park</strong>: Ferry a la Estatua de la Libertad y Ellis Island.</li>
+        <li><span class="horario">11:30</span> <strong>Wall Street & Charging Bull</strong>: Camina por el distrito financiero tras regresar del ferry.</li>
+        <li><span class="horario">12:00</span> <strong>Oculus & World Trade Center</strong>: Llega al Oculus y visita el 9/11 Memorial.</li>
+        <li><span class="horario">13:30</span> <strong>Chinatown</strong>: Disfruta de la cultura, el ambiente y la mejor comida asiática de la ciudad. (Almuerzo recomendado)</li>
+        <li><span class="horario">16:30</span> <strong>Brooklyn Bridge</strong>: Cruza el puente al atardecer/noche para ver el skyline iluminado y termina en DUMBO, Brooklyn.</li>
       </ol>
       <ul>
-        <li><strong>Transporte recomendado:</strong> OMNY (tarjeta/contactless) + Ferry a Liberty Island</li>
-      </ul>
-    </div>
-    <div class="eat">
-      <h3>¿Dónde comer barato?</h3>
-      <ul>
-        <li><strong>Los Tacos No.1 (Chelsea Market)</strong>: Tacos auténticos y económicos dentro del mercado.</li>
-        <li><strong>Leo's Bagels</strong>: Bagels y sándwiches baratos en Wall Street (3 Hanover Square).</li>
-        <li><strong>Joe's Pizza</strong>: Una porción clásica de pizza neoyorquina cerca de Grand Central (1435 Broadway).</li>
-      </ul>
-    </div>
-    <div class="tips">
-      <h3>Consejos</h3>
-      <ul>
-        <li>Reserva el ferry a Liberty Island con anticipación.</li>
-        <li>Camina de Battery Park a Wall Street para ahorrar un viaje.</li>
-        <li>Usa metro línea <strong>2/3</strong> o <strong>4/5</strong> desde Wall Street hasta Fulton Center para Oculus.</li>
-        <li>Usa metro línea <strong>5/6</strong> o <strong>7</strong> desde Oculus hasta Grand Central.</li>
-        <li>Disfruta de la caminata por High Line hasta Chelsea Market.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Día 2 (Central Park, Midtown, Chinatown, Brooklyn Bridge) -->
-  <div id="dia2" class="tabcontent">
-    <div class="map-container" id="map-dia2"></div>
-    <div class="itinerary">
-      <h2>Itinerario Día 2: Central Park, Midtown, Chinatown & Brooklyn Bridge</h2>
-      <ol>
-        <li><strong>Central Park & Museo de Historia Natural</strong> (mañana): Pasea por el parque y visita el museo.</li>
-        <li><strong>Fifth Avenue & Catedral de San Patricio</strong> (mediodía/tarde): Recorre la emblemática avenida y visita la catedral.</li>
-        <li><strong>Chinatown</strong> (tarde): Disfruta de la cultura, el ambiente y la mejor comida asiática de la ciudad.</li>
-        <li><strong>Brooklyn Bridge</strong> (atardecer/noche): Cruza el puente caminando para ver el skyline iluminado y termina en DUMBO, Brooklyn.</li>
-      </ol>
-      <ul>
-        <li><em>Recomendación:</em> Camina o usa el metro B/C (Museo), E/M/6 (5th Ave/Catedral), 6 (a Canal St, Chinatown) y luego camina hasta el Brooklyn Bridge.</li>
+        <li><strong>Transporte recomendado:</strong> OMNY (tarjeta/contactless) + Ferry a Liberty Island + metro 4/5/6 o J/Z hacia Canal St para Chinatown. Todo lo demás a pie.</li>
       </ul>
     </div>
     <div class="eat">
       <h3>¿Dónde comer barato en Chinatown?</h3>
       <ul>
-        <li><strong>Xi’an Famous Foods</strong> (45 Bayard St): Famosos noodles y lamb burgers, sabor único y precios razonables.</li>
-        <li><strong>Joe’s Shanghai</strong> (46 Bowery): Los mejores dumplings al vapor y sopas tradicionales.</li>
-        <li><strong>Great NY Noodletown</strong> (28 Bowery): Sopas de fideos y arroces, ideal para comer abundante y barato.</li>
-        <li><strong>Wo Hop</strong> (17 Mott St): Un clásico subterráneo, platos grandes y económicos, abierto hasta tarde.</li>
-        <li><strong>Tasty Dumpling</strong> (42 Mulberry St): Dumplings baratos para llevar y disfrutar paseando.</li>
+        <li><strong>Xi’an Famous Foods</strong> (45 Bayard St): Noodles y lamb burgers con sabor único.</li>
+        <li><strong>Joe’s Shanghai</strong> (46 Bowery): Dumplings al vapor y sopas tradicionales.</li>
+        <li><strong>Great NY Noodletown</strong> (28 Bowery): Sopas y arroces abundantes y baratos.</li>
+        <li><strong>Wo Hop</strong> (17 Mott St): Un clásico subterráneo, platos grandes y económicos.</li>
+        <li><strong>Tasty Dumpling</strong> (42 Mulberry St): Dumplings económicos para llevar.</li>
       </ul>
     </div>
     <div class="tips">
       <h3>Tips adicionales</h3>
       <ul>
-        <li>El Museo de Historia Natural abre desde temprano, compra la entrada online para evitar filas.</li>
-        <li>En Chinatown lleva efectivo, muchos sitios no aceptan tarjeta.</li>
-        <li>El Brooklyn Bridge es más espectacular al atardecer y de noche: lleva la cámara lista.</li>
-        <li>En DUMBO, Brooklyn, hay excelentes vistas para fotos y helados en Brooklyn Ice Cream Factory.</li>
-        <li>Si vas en grupo, comparte platos en Chinatown para probar más opciones.</li>
+        <li>Reserva el ferry a Liberty Island con anticipación y llega al menos 15 minutos antes.</li>
+        <li>Lleva efectivo para Chinatown, muchos lugares no aceptan tarjeta.</li>
+        <li>Haz el Brooklyn Bridge al atardecer o noche para la mejor vista del skyline.</li>
+        <li>En DUMBO puedes sacar excelentes fotos a Manhattan y disfrutar de un helado en Brooklyn Ice Cream Factory.</li>
+        <li>En el 9/11 Memorial puedes ingresar gratis a la zona exterior.</li>
       </ul>
     </div>
   </div>
 
-  <!-- Día 3 -->
-  <div id="dia3" class="tabcontent">
-    <div class="map-container" id="map-dia3"></div>
+  <!-- Día 2: Central Park, Midtown, High Line, Chelsea Market y Grand Central -->
+  <div id="dia2" class="tabcontent">
+    <div class="map-container" id="map-dia2"></div>
     <div class="itinerary">
-      <h2>Itinerario Día 3: Chelsea, High Line & Midtown Sur</h2>
+      <h2>Itinerario Día 2: Central Park, Midtown, High Line, Chelsea Market y Grand Central</h2>
       <ol>
-        <li><strong>High Line</strong>: Empieza en Hudson Yards y recorre el parque elevado.</li>
-        <li><strong>Chelsea Market</strong>: Baja y prueba algo típico para almorzar.</li>
-        <li><strong>Empire State Building</strong>: Camina por la 7th o 8th Ave hasta el Empire.</li>
-        <li><strong>Grand Central Terminal</strong>: Continúa hacia el este, detente en Bryant Park y termina en Grand Central.</li>
+        <li><span class="horario">09:00</span> <strong>Central Park & Museo de Historia Natural</strong> (mañana): Pasea por el parque y visita el museo.</li>
+        <li><span class="horario">12:30</span> <strong>Fifth Avenue & Catedral de San Patricio</strong> (mediodía/tarde): Recorre la emblemática avenida y visita la catedral.</li>
+        <li><span class="horario">15:00</span> <strong>High Line</strong>: Disfruta del parque elevado y sus vistas urbanas.</li>
+        <li><span class="horario">16:30</span> <strong>Chelsea Market</strong>: Almuerza o merienda en el mercado más foodie de Manhattan.</li>
+        <li><span class="horario">18:00</span> <strong>Grand Central Terminal</strong>: Termina el día admirando la estación y su food court.</li>
       </ol>
       <ul>
-        <li><em>Recomendación:</em> Todo a pie; si te cansas, usa el metro <strong>1/2/3</strong> o <strong>B/D/F/M</strong> según la cercanía.</li>
+        <li><em>Recomendación:</em> Usa metro B/C para el museo, E/M/6 para 5th Ave/Catedral, A/C/E o L para llegar a High Line/Chelsea Market y S/4/5/6/7 para Grand Central.</li>
       </ul>
     </div>
     <div class="eat">
       <h3>¿Dónde comer barato?</h3>
       <ul>
-        <li><strong>Los Mariscos (Chelsea Market)</strong>: Tacos y mariscos frescos a buen precio dentro del mercado.</li>
-        <li><strong>Famous Original Ray's Pizza</strong>: Pizza al corte clásica y barata (831 7th Ave).</li>
-        <li><strong>Shake Shack</strong>: Hamburguesas y papas, buena relación calidad-precio (Madison Square Park).</li>
+        <li><strong>Los Mariscos (Chelsea Market)</strong>: Tacos y mariscos frescos dentro del mercado.</li>
+        <li><strong>Famous Original Ray's Pizza</strong>: Pizza al corte barata (831 7th Ave).</li>
+        <li><strong>Shake Shack</strong>: Hamburguesas y papas en Madison Square Park.</li>
+        <li><strong>Food court de Grand Central</strong>: Varias opciones económicas en el nivel inferior.</li>
       </ul>
     </div>
     <div class="tips">
       <h3>Tips adicionales</h3>
       <ul>
-        <li>Chelsea Market tiene wifi gratis y baños limpios.</li>
-        <li>Si visitas el Empire State, compra entradas online para evitar filas.</li>
-        <li>En Grand Central hay un food court económico en el nivel inferior.</li>
+        <li>Compra la entrada del Museo de Historia Natural online para evitar filas y aprovecha la mañana para recorrer Central Park.</li>
+        <li>Recorre el High Line en dirección sur para terminar en Chelsea Market y aprovechar su comida variada.</li>
+        <li>En Chelsea Market hay wifi gratis y baños limpios.</li>
+        <li>La Catedral de San Patricio es gratuita y se puede visitar brevemente.</li>
+        <li>Grand Central es una excelente opción para cenar económico al final del día y tomar el metro/subte a tu alojamiento.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Día 3: Empire State y alrededores -->
+  <div id="dia3" class="tabcontent">
+    <div class="map-container" id="map-dia3"></div>
+    <div class="itinerary">
+      <h2>Itinerario Día 3: Empire State y alrededores</h2>
+      <ol>
+        <li><span class="horario">09:00</span> <strong>Empire State Building</strong>: Comienza el día subiendo al observatorio si lo deseas.</li>
+        <li><span class="horario">11:00</span> <strong>Bryant Park</strong>: Disfruta el parque y su ambiente relajado.</li>
+        <li><span class="horario">12:30</span> <strong>Biblioteca Pública de Nueva York</strong>: Visita obligada para amantes de la arquitectura y la lectura.</li>
+        <li><span class="horario">18:00</span> <strong>Times Square</strong>: Termina el viaje en el corazón de Manhattan. Lo mejor es visitarlo al anochecer.</li>
+      </ol>
+      <ul>
+        <li><em>Recomendación:</em> Todo a pie; si te cansas, usa el metro 1/2/3 o B/D/F/M según la cercanía.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato?</h3>
+      <ul>
+        <li><strong>Joe's Pizza</strong>: Porción clásica de pizza neoyorquina (1435 Broadway, cerca de Times Square).</li>
+        <li><strong>Ess-a-Bagel</strong>: Bagels enormes y baratos, perfectos para desayuno o almuerzo (831 3rd Ave).</li>
+        <li><strong>Halal Guys</strong>: Gyros y falafel económicos (W 53rd St & 6th Ave, food truck famoso).</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales</h3>
+      <ul>
+        <li>Compra las entradas para el Empire State online para evitar filas y elige horario temprano.</li>
+        <li>Bryant Park es perfecto para descansar y tiene wifi gratis.</li>
+        <li>La Biblioteca Pública es gratuita y tiene baños limpios.</li>
+        <li>Times Square es más impresionante de noche, pero está muy concurrido. ¡Cuida tus pertenencias!</li>
       </ul>
     </div>
   </div>
@@ -289,44 +296,44 @@
     }
 
     function initAllMaps() {
-      // Día 1
+      // Día 1: Downtown, Chinatown y Brooklyn Bridge
       let map1 = new google.maps.Map(document.getElementById('map-dia1'), {
-        center: {lat: 40.7127, lng: -74.0134},
+        center: {lat: 40.7127, lng: -74.0060},
         zoom: 13
       });
       let dia1_points = [
         {lat: 40.7033, lng: -74.0170, label: "Battery Park"},
         {lat: 40.7061, lng: -74.0087, label: "Wall Street & Charging Bull"},
         {lat: 40.7506, lng: -74.0017, label: "Oculus & World Trade Center"},
-        {lat: 40.7527, lng: -73.9772, label: "Grand Central Terminal"},
-        {lat: 40.747993, lng: -74.004765, label: "High Line (entrada sur)"},
-        {lat: 40.7420, lng: -74.0060, label: "Chelsea Market"}
+        {lat: 40.7158, lng: -73.9970, label: "Chinatown"}, // Canal & Mott St
+        {lat: 40.7061, lng: -73.9969, label: "Brooklyn Bridge (entrada Manhattan)"}
       ];
       showRoute(map1, dia1_points, "#e67e22");
 
-      // Día 2 - Central Park, Midtown, Chinatown, Brooklyn Bridge
+      // Día 2: Central Park, Midtown, High Line, Chelsea Market y Grand Central
       let map2 = new google.maps.Map(document.getElementById('map-dia2'), {
-        center: {lat: 40.758465, lng: -73.976865},
+        center: {lat: 40.7648, lng: -73.9787},
         zoom: 13
       });
       let dia2_points = [
         {lat: 40.7813, lng: -73.9735, label: "Museo de Historia Natural"},
         {lat: 40.758465, lng: -73.976865, label: "Catedral de San Patricio"},
-        {lat: 40.7158, lng: -73.9970, label: "Chinatown"}, // Approx. Canal & Mott St
-        {lat: 40.7061, lng: -73.9969, label: "Brooklyn Bridge (entrada Manhattan)"}
+        {lat: 40.747993, lng: -74.004765, label: "High Line (entrada sur)"},
+        {lat: 40.7420, lng: -74.0060, label: "Chelsea Market"},
+        {lat: 40.7527, lng: -73.9772, label: "Grand Central Terminal"}
       ];
       showRoute(map2, dia2_points, "#0099cc");
 
-      // Día 3 igual
+      // Día 3: Empire State y alrededores
       let map3 = new google.maps.Map(document.getElementById('map-dia3'), {
-        center: {lat: 40.7486, lng: -73.9948},
+        center: {lat: 40.7549, lng: -73.9840},
         zoom: 13
       });
       let dia3_points = [
-        {lat: 40.7537, lng: -74.0025, label: "High Line (Hudson Yards)"},
-        {lat: 40.7420, lng: -74.0060, label: "Chelsea Market"},
         {lat: 40.748817, lng: -73.985428, label: "Empire State Building"},
-        {lat: 40.7517, lng: -73.9772, label: "Grand Central Terminal"}
+        {lat: 40.7536, lng: -73.9832, label: "Bryant Park"},
+        {lat: 40.7532, lng: -73.9822, label: "Biblioteca Pública de Nueva York"},
+        {lat: 40.7580, lng: -73.9855, label: "Times Square"}
       ];
       showRoute(map3, dia3_points, "#27ae60");
     }
