@@ -5,114 +5,28 @@
   <title>NYC Travel Planner - 3 días en Nueva York + 3 de Julio en Washington DC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f7fa;
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
-    header {
-      background: #222b45;
-      color: #fff;
-      padding: 2rem 1rem 1rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 8px #ddd;
-    }
-    h1 {
-      margin: 0 0 0.5rem 0;
-      font-size: 2.2rem;
-    }
-    .tabs {
-      display: flex;
-      justify-content: center;
-      background: #fff;
-      box-shadow: 0 2px 8px #e0e0e0;
-      margin-top: -1rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .tab {
-      padding: 1rem 2rem;
-      cursor: pointer;
-      font-weight: 500;
-      color: #222b45;
-      border: none;
-      background: none;
-      border-bottom: 3px solid transparent;
-      transition: border .2s;
-      outline: none;
-      font-size: 1.1rem;
-    }
-    .tab.active {
-      border-bottom: 3px solid #0099cc;
-      color: #0099cc;
-      background: #f7fafc;
-    }
-    .tabcontent {
-      display: none;
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 4px 20px #e0e6ed;
-      margin-bottom: 2rem;
-    }
-    .tabcontent.active {
-      display: block;
-    }
-    .map-container {
-      width: 100%;
-      height: 380px;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 1.2rem;
-      border: 1px solid #dde4eb;
-      box-shadow: 0 2px 8px #f7faff;
-    }
-    .itinerary {
-      background: #f7fafc;
-      border-radius: 8px;
-      padding: 1.2rem 1.5rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #0099cc;
-      box-shadow: 0 2px 8px #e0e6ed;
-    }
-    .eat, .tips {
-      background: #effaff;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #27ae60;
-      box-shadow: 0 2px 8px #e0e6ed;
-    }
-    .eat h3, .tips h3 {
-      margin-top: 0;
-      color: #27ae60;
-    }
-    .tips {
-      border-left: 4px dashed #e67e22;
-      background: #fff9ee;
-    }
-    .tips h3 {
-      color: #e67e22;
-    }
-    .itinerary strong {
-      color: #0099cc;
-    }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f7fa; margin: 0; padding: 0; color: #222; }
+    header { background: #222b45; color: #fff; padding: 2rem 1rem 1rem 1rem; text-align: center; box-shadow: 0 2px 8px #ddd; }
+    h1 { margin: 0 0 0.5rem 0; font-size: 2.2rem; }
+    .tabs { display: flex; justify-content: center; background: #fff; box-shadow: 0 2px 8px #e0e0e0; margin-top: -1rem; position: sticky; top: 0; z-index: 10; }
+    .tab { padding: 1rem 2rem; cursor: pointer; font-weight: 500; color: #222b45; border: none; background: none; border-bottom: 3px solid transparent; transition: border .2s; outline: none; font-size: 1.1rem; }
+    .tab.active { border-bottom: 3px solid #0099cc; color: #0099cc; background: #f7fafc; }
+    .tabcontent { display: none; padding: 2rem; max-width: 900px; margin: 0 auto; background: #fff; border-radius: 0 0 10px 10px; box-shadow: 0 4px 20px #e0e6ed; margin-bottom: 2rem; }
+    .tabcontent.active { display: block; }
+    .map-container { width: 100%; height: 380px; border-radius: 8px; overflow: hidden; margin-bottom: 1.2rem; border: 1px solid #dde4eb; box-shadow: 0 2px 8px #f7faff; }
+    .itinerary { background: #f7fafc; border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; border-left: 4px solid #0099cc; box-shadow: 0 2px 8px #e0e6ed; }
+    .eat, .tips { background: #effaff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; border-left: 4px solid #27ae60; box-shadow: 0 2px 8px #e0e6ed; }
+    .eat h3, .tips h3 { margin-top: 0; color: #27ae60; }
+    .tips { border-left: 4px dashed #e67e22; background: #fff9ee; }
+    .tips h3 { color: #e67e22; }
+    .itinerary strong { color: #0099cc; }
     @media (max-width: 700px) {
       .tabcontent { padding: 1rem; }
       .tabs { flex-direction: column; }
       .tab { width: 100%; }
       .map-container { height: 250px; }
     }
-    .horario {
-      color: #0099cc;
-      font-weight: bold;
-      margin-right: 0.5em;
-    }
+    .horario { color: #0099cc; font-weight: bold; margin-right: 0.5em; }
   </style>
 </head>
 <body>
@@ -128,21 +42,153 @@
     <button class="tab" data-tab="washington">3 de Julio: Washington DC</button>
   </div>
 
+  <!-- Día 1 -->
   <div id="dia1" class="tabcontent active">
     <div class="map-container" id="map-dia1"></div>
-    <!-- ... resto igual ... -->
+    <div class="itinerary">
+      <h2>Itinerario Día 1: Central Park, Midtown, High Line, Chelsea Market, Grand Central y Top of the Rock</h2>
+      <ol>
+        <li><span class="horario">09:00</span> <strong>Central Park</strong> (mañana): Pasea por el parque y disfruta de la naturaleza en pleno Manhattan.</li>
+        <li><span class="horario">12:30</span> <strong>Fifth Avenue & Catedral de San Patricio</strong> (mediodía/tarde): Recorre la emblemática avenida y visita la catedral.</li>
+        <li><span class="horario">15:00</span> <strong>High Line</strong>: Disfruta del parque elevado y sus vistas urbanas.</li>
+        <li><span class="horario">16:30</span> <strong>Chelsea Market</strong>: Almuerza o merienda en el mercado más foodie de Manhattan.</li>
+        <li><span class="horario">18:00</span> <strong>Grand Central Terminal</strong>: Termina el día admirando la estación y su food court.</li>
+        <li><span class="horario">20:00</span> <strong>Top of the Rock</strong>: Sube al observatorio del Rockefeller Center para vistas panorámicas de Manhattan al atardecer o de noche.</li>
+      </ol>
+      <ul>
+        <li><em>Recomendación:</em> Usa metro B/C para el parque, E/M/6 para 5th Ave/Catedral, A/C/E o L para llegar a High Line/Chelsea Market y S/4/5/6/7 para Grand Central.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato?</h3>
+      <ul>
+        <li><strong>Los Mariscos (Chelsea Market)</strong>: Tacos y mariscos frescos dentro del mercado.</li>
+        <li><strong>Famous Original Ray's Pizza</strong>: Pizza al corte barata (831 7th Ave).</li>
+        <li><strong>Shake Shack</strong>: Hamburguesas y papas en Madison Square Park.</li>
+        <li><strong>Food court de Grand Central</strong>: Varias opciones económicas en el nivel inferior.</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales</h3>
+      <ul>
+        <li>Aprovecha la mañana para recorrer Central Park y, si te interesa, alquila una bici para ver más en menos tiempo.</li>
+        <li>Recorre el High Line en dirección sur para terminar en Chelsea Market y aprovechar su comida variada.</li>
+        <li>En Chelsea Market hay wifi gratis y baños limpios.</li>
+        <li>La Catedral de San Patricio es gratuita y se puede visitar brevemente.</li>
+        <li>Grand Central es una excelente opción para cenar económico al final del día y tomar el metro/subte a tu alojamiento.</li>
+        <li>Compra las entradas para Top of the Rock online para evitar filas y elige horario atardecer o noche para las mejores vistas.</li>
+      </ul>
+    </div>
   </div>
+
+  <!-- Día 2 -->
   <div id="dia2" class="tabcontent">
     <div class="map-container" id="map-dia2"></div>
-    <!-- ... resto igual ... -->
+    <div class="itinerary">
+      <h2>Itinerario Día 2: Downtown, Chinatown y Brooklyn Bridge</h2>
+      <ol>
+        <li><span class="horario">08:30</span> <strong>Battery Park</strong>: Ferry a la Estatua de la Libertad y Ellis Island.</li>
+        <li><span class="horario">11:30</span> <strong>Wall Street & Charging Bull</strong>: Camina por el distrito financiero tras regresar del ferry.</li>
+        <li><span class="horario">12:00</span> <strong>Oculus & World Trade Center</strong>: Llega al Oculus y visita el 9/11 Memorial.</li>
+        <li><span class="horario">13:30</span> <strong>Chinatown</strong>: Disfruta de la cultura, el ambiente y la mejor comida asiática de la ciudad. (Almuerzo recomendado)</li>
+        <li><span class="horario">16:30</span> <strong>Brooklyn Bridge</strong>: Cruza el puente al atardecer/noche para ver el skyline iluminado y termina en DUMBO, Brooklyn.</li>
+      </ol>
+      <ul>
+        <li><strong>Transporte recomendado:</strong> OMNY (tarjeta/contactless) + Ferry a Liberty Island + metro 4/5/6 o J/Z hacia Canal St para Chinatown. Todo lo demás a pie.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato en Chinatown?</h3>
+      <ul>
+        <li><strong>Xi’an Famous Foods</strong> (45 Bayard St): Noodles y lamb burgers con sabor único.</li>
+        <li><strong>Joe’s Shanghai</strong> (46 Bowery): Dumplings al vapor y sopas tradicionales.</li>
+        <li><strong>Great NY Noodletown</strong> (28 Bowery): Sopas y arroces abundantes y baratos.</li>
+        <li><strong>Wo Hop</strong> (17 Mott St): Un clásico subterráneo, platos grandes y económicos.</li>
+        <li><strong>Tasty Dumpling</strong> (42 Mulberry St): Dumplings económicos para llevar.</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales</h3>
+      <ul>
+        <li>Reserva el ferry a Liberty Island con anticipación y llega al menos 15 minutos antes.</li>
+        <li>Lleva efectivo para Chinatown, muchos lugares no aceptan tarjeta.</li>
+        <li>Haz el Brooklyn Bridge al atardecer o noche para la mejor vista del skyline.</li>
+        <li>En DUMBO puedes sacar excelentes fotos a Manhattan y disfrutar de un helado en Brooklyn Ice Cream Factory.</li>
+        <li>En el 9/11 Memorial puedes ingresar gratis a la zona exterior.</li>
+      </ul>
+    </div>
   </div>
+
+  <!-- Día 3 -->
   <div id="dia3" class="tabcontent">
     <div class="map-container" id="map-dia3"></div>
-    <!-- ... resto igual ... -->
+    <div class="itinerary">
+      <h2>Itinerario Día 3: Empire State y alrededores</h2>
+      <ol>
+        <li><span class="horario">09:00</span> <strong>Empire State Building</strong>: Comienza el día subiendo al observatorio si lo deseas.</li>
+        <li><span class="horario">11:00</span> <strong>Bryant Park</strong>: Disfruta el parque y su ambiente relajado.</li>
+        <li><span class="horario">12:30</span> <strong>Biblioteca Pública de Nueva York</strong>: Visita obligada para amantes de la arquitectura y la lectura.</li>
+        <li><span class="horario">18:00</span> <strong>Times Square</strong>: Termina el viaje en el corazón de Manhattan. Lo mejor es visitarlo al anochecer.</li>
+      </ol>
+      <ul>
+        <li><em>Recomendación:</em> Todo a pie; si te cansas, usa el metro 1/2/3 o B/D/F/M según la cercanía.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato?</h3>
+      <ul>
+        <li><strong>Joe's Pizza</strong>: Porción clásica de pizza neoyorquina (1435 Broadway, cerca de Times Square).</li>
+        <li><strong>Ess-a-Bagel</strong>: Bagels enormes y baratos, perfectos para desayuno o almuerzo (831 3rd Ave).</li>
+        <li><strong>Halal Guys</strong>: Gyros y falafel económicos (W 53rd St & 6th Ave, food truck famoso).</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales</h3>
+      <ul>
+        <li>Compra las entradas para el Empire State online para evitar filas y elige horario temprano.</li>
+        <li>Bryant Park es perfecto para descansar y tiene wifi gratis.</li>
+        <li>La Biblioteca Pública es gratuita y tiene baños limpios.</li>
+        <li>Times Square es más impresionante de noche, pero está muy concurrido. ¡Cuida tus pertenencias!</li>
+      </ul>
+    </div>
   </div>
+
+  <!-- 3 de Julio: Washington DC -->
   <div id="washington" class="tabcontent">
     <div class="map-container" id="map-washington"></div>
-    <!-- ... resto igual ... -->
+    <div class="itinerary">
+      <h2>Itinerario 3 de Julio: Washington DC</h2>
+      <ol>
+        <li><span class="horario">08:00</span> <strong>Catedral Nacional de Washington</strong>: Visita una de las iglesias más impresionantes del país.</li>
+        <li><span class="horario">09:00</span> <strong>Universidad de Georgetown</strong>: Recorrido por el histórico campus y su entorno pintoresco.</li>
+        <li><span class="horario">09:45</span> <strong>Old Stone House</strong>: Una de las casas más antiguas de DC, situada en el corazón de Georgetown.</li>
+        <li><span class="horario">11:00</span> <strong>Museo Nacional del Aire y el Espacio</strong>: Entrada reservada. Disfruta de las exhibiciones de la aviación y el espacio.</li>
+        <li><span class="horario">13:30</span> <strong>Almuerzo y paseo por el National Mall</strong>: Relájate y disfruta de los jardines y monumentos cercanos. Puedes buscar food trucks o comer en la cafetería del museo.</li>
+        <li><span class="horario">16:10</span> <strong>Capitolio</strong>: Entrada reservada. Tour por el edificio icónico del Congreso de los Estados Unidos.</li>
+      </ol>
+      <ul>
+        <li><strong>Transporte recomendado:</strong> Uber/Lyft entre Catedral y Georgetown, luego metro o bus hacia el National Mall y Capitolio.</li>
+      </ul>
+    </div>
+    <div class="eat">
+      <h3>¿Dónde comer barato en Washington DC?</h3>
+      <ul>
+        <li><strong>Shake Shack</strong> (800 F St NW): Hamburguesas y papas.</li>
+        <li><strong>Food trucks en el National Mall</strong>: Gran variedad y precios accesibles.</li>
+        <li><strong>Good Stuff Eatery</strong> (303 Pennsylvania Ave SE): Hamburguesas cerca del Capitolio.</li>
+        <li><strong>Georgetown Cupcake</strong> (3301 M St NW): Para un postre típico en Georgetown.</li>
+      </ul>
+    </div>
+    <div class="tips">
+      <h3>Tips adicionales para el 3 de Julio</h3>
+      <ul>
+        <li>Reserva con anticipación tus traslados; hay mucha demanda por el feriado nacional.</li>
+        <li>Lleva agua y protector solar, el clima suele ser caluroso y húmedo.</li>
+        <li>Llega al menos 15 minutos antes a tus reservas en el museo y el Capitolio.</li>
+        <li>El National Mall es ideal para disfrutar del ambiente festivo y los monumentos si te quedas hasta la tarde.</li>
+        <li>Al ser víspera de feriado, muchos lugares pueden estar más llenos de lo habitual. Paciencia y ¡disfruta Washington DC!</li>
+      </ul>
+    </div>
   </div>
 
   <script>
