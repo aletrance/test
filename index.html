@@ -130,97 +130,37 @@
 
   <div id="dia1" class="tabcontent active">
     <div class="map-container" id="map-dia1"></div>
-    <!-- resto igual ... -->
+    <!-- ... resto igual ... -->
   </div>
   <div id="dia2" class="tabcontent">
     <div class="map-container" id="map-dia2"></div>
-    <!-- resto igual ... -->
+    <!-- ... resto igual ... -->
   </div>
   <div id="dia3" class="tabcontent">
     <div class="map-container" id="map-dia3"></div>
-    <!-- resto igual ... -->
+    <!-- ... resto igual ... -->
   </div>
   <div id="washington" class="tabcontent">
     <div class="map-container" id="map-washington"></div>
-    <!-- resto igual ... -->
+    <!-- ... resto igual ... -->
   </div>
 
   <script>
-    // Simple tab switching
+    // Tabs
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', function() {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.tabcontent').forEach(tc => tc.classList.remove('active'));
         this.classList.add('active');
         document.getElementById(this.dataset.tab).classList.add('active');
-        renderMap(this.dataset.tab); // Render the map for the tab shown!
       });
     });
 
-    // Helper to clear previous maps before rendering a new one (avoid overlays, memory leaks)
-    function clearMap(id) {
-      let container = document.getElementById(id);
-      if (container) {
-        container.innerHTML = ""; // Remove any previous map instance
-      }
-    }
-
-    // Render the map for the visible tab
-    function renderMap(tab) {
-      if (tab === "dia1") {
-        clearMap('map-dia1');
-        let map = new google.maps.Map(document.getElementById('map-dia1'), {center: {lat: 40.7648, lng: -73.9787}, zoom: 13});
-        let points = [
-          {lat: 40.7829, lng: -73.9654, label: "1. Central Park"},
-          {lat: 40.758465, lng: -73.976865, label: "2. Catedral de San Patricio"},
-          {lat: 40.747993, lng: -74.004765, label: "3. High Line"},
-          {lat: 40.7420, lng: -74.0060, label: "4. Chelsea Market"},
-          {lat: 40.7527, lng: -73.9772, label: "5. Grand Central Terminal"},
-          {lat: 40.7587, lng: -73.9787, label: "6. Top of the Rock"}
-        ];
-        addMarkersAndRoute(map, points, "#0099cc");
-      }
-      if (tab === "dia2") {
-        clearMap('map-dia2');
-        let map = new google.maps.Map(document.getElementById('map-dia2'), {center: {lat: 40.7127, lng: -74.0060}, zoom: 13});
-        let points = [
-          {lat: 40.7033, lng: -74.0170, label: "1. Battery Park"},
-          {lat: 40.7061, lng: -74.0087, label: "2. Wall Street & Charging Bull"},
-          {lat: 40.7126, lng: -74.0099, label: "3. Oculus & World Trade Center"},
-          {lat: 40.7158, lng: -73.9970, label: "4. Chinatown"},
-          {lat: 40.7061, lng: -73.9969, label: "5. Brooklyn Bridge (Manhattan)"}
-        ];
-        addMarkersAndRoute(map, points, "#e67e22");
-      }
-      if (tab === "dia3") {
-        clearMap('map-dia3');
-        let map = new google.maps.Map(document.getElementById('map-dia3'), {center: {lat: 40.7549, lng: -73.9840}, zoom: 13});
-        let points = [
-          {lat: 40.748817, lng: -73.985428, label: "1. Empire State Building"},
-          {lat: 40.7536, lng: -73.9832, label: "2. Bryant Park"},
-          {lat: 40.7532, lng: -73.9822, label: "3. Biblioteca Pública de Nueva York"},
-          {lat: 40.7580, lng: -73.9855, label: "4. Times Square"}
-        ];
-        addMarkersAndRoute(map, points, "#27ae60");
-      }
-      if (tab === "washington") {
-        clearMap('map-washington');
-        let map = new google.maps.Map(document.getElementById('map-washington'), {center: {lat: 38.8977, lng: -77.0365}, zoom: 12});
-        let points = [
-          {lat: 38.9306, lng: -77.0706, label: "1. Catedral Nacional de Washington"},
-          {lat: 38.9076, lng: -77.0723, label: "2. Universidad de Georgetown"},
-          {lat: 38.9040, lng: -77.0624, label: "3. Old Stone House"},
-          {lat: 38.8882, lng: -77.0199, label: "4. Museo Nacional del Aire y el Espacio"},
-          {lat: 38.8899, lng: -77.0091, label: "5. Capitolio"}
-        ];
-        addMarkersAndRoute(map, points, "#ff5252", "DRIVING");
-      }
-    }
-
-    function addMarkersAndRoute(map, points, color, travelMode) {
+    // Google Maps: Render all at once, don't care about hidden state
+    function addMarkers(map, points) {
       for (let i = 0; i < points.length; i++) {
         new google.maps.Marker({
-          position: {lat: points[i].lat, lng: points[i].lng},
+          position: points[i].pos,
           map: map,
           label: {
             text: (i+1).toString(),
@@ -231,19 +171,24 @@
           title: points[i].label
         });
       }
-      let directionsService = new google.maps.DirectionsService();
-      let directionsRenderer = new google.maps.DirectionsRenderer({
+    }
+    function showRoute(map, points, color, travelMode) {
+      const directionsService = new google.maps.DirectionsService();
+      const directionsRenderer = new google.maps.DirectionsRenderer({
         suppressMarkers: true,
         polylineOptions: { strokeColor: color, strokeWeight: 4 }
       });
       directionsRenderer.setMap(map);
       let waypoints = [];
       for (let i = 1; i < points.length - 1; i++) {
-        waypoints.push({ location: {lat: points[i].lat, lng: points[i].lng}, stopover: true });
+        waypoints.push({
+          location: points[i].pos,
+          stopover: true
+        });
       }
       directionsService.route({
-        origin: {lat: points[0].lat, lng: points[0].lng},
-        destination: {lat: points[points.length-1].lat, lng: points[points.length-1].lng},
+        origin: points[0].pos,
+        destination: points[points.length-1].pos,
         waypoints: waypoints,
         travelMode: travelMode || "WALKING"
       }, function(response, status) {
@@ -251,19 +196,58 @@
           directionsRenderer.setDirections(response);
         }
       });
+      addMarkers(map, points);
     }
-
+    function initAllMaps() {
+      // Día 1
+      let map1 = new google.maps.Map(document.getElementById('map-dia1'), {center: {lat: 40.7648, lng: -73.9787}, zoom: 13});
+      let dia1_points = [
+        {pos: {lat: 40.7829, lng: -73.9654}, label: "Central Park"},
+        {pos: {lat: 40.758465, lng: -73.976865}, label: "Catedral de San Patricio"},
+        {pos: {lat: 40.747993, lng: -74.004765}, label: "High Line (entrada sur)"},
+        {pos: {lat: 40.7420, lng: -74.0060}, label: "Chelsea Market"},
+        {pos: {lat: 40.7527, lng: -73.9772}, label: "Grand Central Terminal"},
+        {pos: {lat: 40.7587, lng: -73.9787}, label: "Top of the Rock"}
+      ];
+      showRoute(map1, dia1_points, "#0099cc");
+      // Día 2
+      let map2 = new google.maps.Map(document.getElementById('map-dia2'), {center: {lat: 40.7127, lng: -74.0060}, zoom: 13});
+      let dia2_points = [
+        {pos: {lat: 40.7033, lng: -74.0170}, label: "Battery Park"},
+        {pos: {lat: 40.7061, lng: -74.0087}, label: "Wall Street & Charging Bull"},
+        {pos: {lat: 40.7126, lng: -74.0099}, label: "Oculus & World Trade Center"},
+        {pos: {lat: 40.7158, lng: -73.9970}, label: "Chinatown"},
+        {pos: {lat: 40.7061, lng: -73.9969}, label: "Brooklyn Bridge (entrada Manhattan)"}
+      ];
+      showRoute(map2, dia2_points, "#e67e22");
+      // Día 3
+      let map3 = new google.maps.Map(document.getElementById('map-dia3'), {center: {lat: 40.7549, lng: -73.9840}, zoom: 13});
+      let dia3_points = [
+        {pos: {lat: 40.748817, lng: -73.985428}, label: "Empire State Building"},
+        {pos: {lat: 40.7536, lng: -73.9832}, label: "Bryant Park"},
+        {pos: {lat: 40.7532, lng: -73.9822}, label: "Biblioteca Pública de Nueva York"},
+        {pos: {lat: 40.7580, lng: -73.9855}, label: "Times Square"}
+      ];
+      showRoute(map3, dia3_points, "#27ae60");
+      // 3 de Julio: Washington DC
+      let mapWashington = new google.maps.Map(document.getElementById('map-washington'), {center: {lat: 38.8977, lng: -77.0365}, zoom: 12});
+      let washington_points = [
+        {pos: {lat: 38.9306, lng: -77.0706}, label: "Catedral Nacional de Washington"},
+        {pos: {lat: 38.9076, lng: -77.0723}, label: "Universidad de Georgetown"},
+        {pos: {lat: 38.9040, lng: -77.0624}, label: "Old Stone House"},
+        {pos: {lat: 38.8882, lng: -77.0199}, label: "Museo Nacional del Aire y el Espacio"},
+        {pos: {lat: 38.8899, lng: -77.0091}, label: "Capitolio"}
+      ];
+      showRoute(mapWashington, washington_points, "#ff5252", "DRIVING");
+    }
     // Google Maps async loader
-    let gmapsLoaded = false;
     function loadGoogleMapsScript() {
-      if (gmapsLoaded) return;
-      gmapsLoaded = true;
       let script = document.createElement('script');
-      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZKxlKu8Vxe3xrtdH8AhcBvkfnwG3TxAQ&callback=onGMapsLoaded";
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZKxlKu8Vxe3xrtdH8AhcBvkfnwG3TxAQ&callback=initAllMaps";
       script.async = true;
       document.body.appendChild(script);
     }
-    window.onGMapsLoaded = function() { renderMap('dia1'); }
+    window.initAllMaps = initAllMaps;
     window.addEventListener('DOMContentLoaded', loadGoogleMapsScript);
   </script>
 </body>
